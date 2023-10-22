@@ -43,11 +43,6 @@
     <None Include="wwwroot\lib\table2excel\table2excel.js" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ViewAsPdf.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="wwwroot\Upload\" />
   </ItemGroup>
 </Project>
