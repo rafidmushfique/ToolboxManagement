@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace LILI_TTS.Migrations
+namespace TMS.Migrations
 {
     public partial class MyFirstMigration : Migration
     {

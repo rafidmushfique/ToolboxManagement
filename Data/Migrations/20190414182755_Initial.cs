@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LILI_TTS.Data.Migrations
+namespace TMS.Data.Migrations
 {
     public partial class Initial : Migration
     {

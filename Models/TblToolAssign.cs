@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LILI_TTS.Models
+namespace TMS.Models
 {
     public partial class TblToolAssign
     {

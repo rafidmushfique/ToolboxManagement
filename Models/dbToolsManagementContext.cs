@@ -1,10 +1,10 @@
 ﻿using System;
 using LILI_FPMS.Models;
-using LILI_TTS.Models;
+using TMS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace LILI_TTS.Models
+namespace TMS.Models
 {
     public partial class dbToolsManagementContext : DbContext
     {

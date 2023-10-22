@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using LILI_TTS.Data;
-using LILI_TTS.Models;
-using LILI_TTS.Services;
+using TMS.Data;
+using TMS.Models;
+using TMS.Services;
 using Rotativa.AspNetCore;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
-namespace LILI_TTS
+namespace TMS
 {
     public class Startup
     {

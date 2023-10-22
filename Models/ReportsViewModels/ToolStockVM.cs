@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace LILI_TTS.Models.ReportsViewModels
+namespace TMS.Models.ReportsViewModels
 {
     public class ToolStockVM
     {

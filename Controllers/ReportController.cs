@@ -13,11 +13,11 @@ using System.Drawing;
 using Newtonsoft.Json;
 using System.Web.Helpers;
 using System.Xml;
-using LILI_TTS.Models;
-using LILI_TTS.Models.ReportsViewModels;
+using TMS.Models;
+using TMS.Models.ReportsViewModels;
 using NPOI.POIFS.Crypt.Dsig;
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     [Authorize]
     public class ReportController : Controller

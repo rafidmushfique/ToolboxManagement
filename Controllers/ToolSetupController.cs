@@ -1,4 +1,4 @@
-﻿using LILI_TTS.Models;
+﻿using TMS.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     [Authorize]
     public class ToolSetupController : Controller

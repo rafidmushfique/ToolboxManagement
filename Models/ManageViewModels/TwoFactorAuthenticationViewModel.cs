@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LILI_TTS.Models.ManageViewModels
+namespace TMS.Models.ManageViewModels
 {
     public class TwoFactorAuthenticationViewModel
     {

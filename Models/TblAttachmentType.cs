@@ -1,8 +1,8 @@
-﻿using LILI_TTS.Models;
+﻿using TMS.Models;
 using System;
 using System.Collections.Generic;
 
-namespace LILI_TTS.Models
+namespace TMS.Models
 {
     public partial class TblAttachmentType
     {

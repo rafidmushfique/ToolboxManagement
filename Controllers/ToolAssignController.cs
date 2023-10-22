@@ -1,5 +1,5 @@
-﻿using LILI_TTS.Models;
-using LILI_TTS.Models;
+﻿using TMS.Models;
+using TMS.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Helpers;
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     [Authorize]
     public class ToolAssignController : Controller

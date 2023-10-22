@@ -8,7 +8,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LILI_TTS": {
+    "TMS": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

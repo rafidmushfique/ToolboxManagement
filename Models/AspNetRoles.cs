@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LILI_TTS.Models
+namespace TMS.Models
 {
     public partial class AspNetRoles
     {

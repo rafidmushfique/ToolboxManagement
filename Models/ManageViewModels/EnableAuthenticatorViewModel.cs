@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace LILI_TTS.Models.ManageViewModels
+namespace TMS.Models.ManageViewModels
 {
     public class EnableAuthenticatorViewModel
     {

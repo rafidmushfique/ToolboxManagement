@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace LILI_TTS.Models.ManageViewModels
+namespace TMS.Models.ManageViewModels
 {
     public class ExternalLoginsViewModel
     {

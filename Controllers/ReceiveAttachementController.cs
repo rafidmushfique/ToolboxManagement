@@ -1,4 +1,4 @@
-﻿using LILI_TTS.Models;
+﻿using TMS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -12,7 +12,7 @@ using System.Net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     [Authorize]
     public class ReceiveAttachementController : Controller

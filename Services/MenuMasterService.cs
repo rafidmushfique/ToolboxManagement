@@ -1,11 +1,11 @@
-﻿using LILI_TTS.Data;
-using LILI_TTS.Models;
+﻿using TMS.Data;
+using TMS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LILI_TTS.Services
+namespace TMS.Services
 {
     public class MenuMasterService:IMenuMasterService
     {

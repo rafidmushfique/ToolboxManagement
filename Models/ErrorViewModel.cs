@@ -1,6 +1,6 @@
 using System;
 
-namespace LILI_TTS.Models
+namespace TMS.Models
 {
     public class ErrorViewModel
     {

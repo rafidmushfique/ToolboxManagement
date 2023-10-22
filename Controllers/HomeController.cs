@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using LILI_TTS.Models;
+using TMS.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     [Authorize]
     public class HomeController : Controller

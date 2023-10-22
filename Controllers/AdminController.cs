@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     public class AdminController : Controller
     {

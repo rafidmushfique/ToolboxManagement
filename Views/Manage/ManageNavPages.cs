@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace LILI_TTS.Views.Manage
+namespace TMS.Views.Manage
 {
     public static class ManageNavPages
     {

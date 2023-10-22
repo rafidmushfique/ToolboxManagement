@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using LILI_TTS.Services;
+using TMS.Services;
 
-namespace LILI_TTS.Services
+namespace TMS.Services
 {
     public static class EmailSenderExtensions
     {

@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using LILI_TTS.Models;
-using LILI_TTS.Models.AccountViewModels;
-using LILI_TTS.Services;
+using TMS.Models;
+using TMS.Models.AccountViewModels;
+using TMS.Services;
 
-namespace LILI_TTS.Controllers
+namespace TMS.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
