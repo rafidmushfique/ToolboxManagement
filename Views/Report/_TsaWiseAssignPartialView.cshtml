@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TsaWiseAssignReportVM>
+<div class="card p-0" id="PrintArea"style="box-shadow: none;">
+    <div class="card-body p-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row p-1">
+                   
+                        <label class="col-sm-2 text-right">TSA Name</label>
+                        <div class="col-sm-4">
+                            <input tyhpe="text" class="form-control readonly" readonly="readonly" value="@Model.FirstOrDefault().TSAName"> </input>
+                        </div>
+                    
+                   
+                        <label class="col-sm-2 text-right">Designation</label>
+                        <div class="col-sm-4">
+                            <input tyhpe="text" class="form-control readonly" readonly="readonly" value="@Model.FirstOrDefault().Designation"> </input>
+                        </div>
+                   
+                </div>
+                <div class="row p-1">
+                    <label class="col-sm-2 text-right">Area</label p-1>
+                    <div class="col-sm-4">
+                        <input tyhpe="text" class="form-control readonly" readonly="readonly" value="@Model.FirstOrDefault().AreaName"> </input>
+                    </div>
+
+
+                    <label class="col-sm-2 text-right">Region</label>
+                    <div class="col-sm-4">
+                        <input tyhpe="text" class="form-control readonly" readonly="readonly" value="@Model.FirstOrDefault().RegionName"> </input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-4">
+            <div class="col-sm-12">
+                <table id="VIewTable" class="table table-bordered  compact dataTable no-footer" style="width:100%; white-space:nowrap">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Sl No.</th>
+                            <th> Tools Code </th>
+                            <th> Tools Name </th>
+                            <th> Brand </th>
+                            <th> Balance Quantity </th>
+                            <th> Action Type </th>
+                            <th>Action Date</th>
+                            <th> Comments </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+
+                            @foreach (var di in Model)
+                            {
+                                <tr>
+                                    <td>@di.SlNo</td>
+                                    <td>@di.ToolCode</td>
+                                    <td>@di.ToolName</td>
+                                    <td>@di.Brand</td>
+                                    <td>@di.Qty</td>
+                                    <td>@di.ActionTypeName</td>
+                                    <td>@di.ActionDate</td>
+                                    <td>@di.Description</td>
+                                </tr>
+
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="row p-4 text-center">
+
+             <label class="col-sm-6"><text><u>Receiver Name: </u></text></label>
+              <label class="col-sm-6"><text><u>Handover By:</u></text></label>
+        </div>
+       
+    </div>
+</div>

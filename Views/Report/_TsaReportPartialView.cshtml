@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TsaReportVM>
+<div class="card p-0" style="box-shadow: none;">
+    <div class="card-body p-4">
+
+        <table id="ReportTable" class="table table-hover compact dataTable no-footer" style="width:100%; white-space:nowrap">
+            <thead>
+                <tr>
+                    <th>Sl No.</th>
+                    <th>Tsa Name</th>
+                    <th>Tsa Code</th>
+                    <th>Designation</th>
+                    <th>Area</th>
+                    <th>Region</th>
+                    <th> Tools Code </th>
+                    <th> Tools Name </th>
+                    <th> Brand </th>
+                    <th> Balance Quantity </th>
+                    <th> Action Type </th>
+                    <th>Receiving</th>
+                    <th> Comments </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+
+                    @foreach (var di in Model)
+                    {
+                        <tr>
+                            <td>@di.SlNo</td>
+                            <td>@di.TSACode</td>
+                            <td>@di.TSAName</td>
+                            <td>@di.Designation</td>
+                            <td>@di.AreaName</td>
+                            <td>@di.RegionName</td>
+                            <td>@di.ToolCode</td>
+                            <td>@di.ToolName</td>
+                            <td>@di.Brand</td>
+                            <td>@di.Quantity</td>
+                            <td>@di.ActionTypeName</td>
+                            <td><a href="/Upload/@di.FileName" download="@di.OriginalFileName">@di.OriginalFileName</a></td>
+                            <td>@di.Description</td>
+
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

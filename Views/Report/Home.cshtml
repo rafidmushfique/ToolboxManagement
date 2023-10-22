@@ -1,0 +1,215 @@
+﻿
+ 
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+         
+            <div class="card-body">
+                <div class="row">
+                      <div class="col-sm-2">
+                <label>Report List</label>
+                <select id="reportList" class="form-control" onchange="SetReportWiseView()">
+                      <option value="0">-- Select a Report --</-----></option>
+                    <option value="1">Tool Stock</option>
+                    <option value="2">TSA All</option>
+                    <option value="3">TSA Wise Assign</option>
+                </Select>
+                 </div>
+                   <div class="col-sm-2">   
+                       <button type="button" id="submitBtn"class="btn btn-primary" style="margin-top: 2.2em;height: 2.1em; text-align:center" onclick="GetReportView()">Load</button>
+                   </div>
+                </div>
+              
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-12" id="parameterInfo" style="display:none">
+         <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div>
+                             <label>TSA Code</label>
+                             <select id="Tsacode" onchange="GetTsaWiseData();" class="form-control" onchange="GetTsaWiseAssignData()">
+                                 @foreach(var item in ViewBag.ListOfTsa)
+                                {
+                                    
+                                    <option value="@item.Tsacode">@item.Tsaname</option>
+                                }
+                            </Select>
+                            <div class="col-sm-2">   
+                               <button type="button" class="btn btn-primary" style="margin-top: 2.2em;height: 2.1em; text-align:center" id="printReport" ">Print</button>
+                           </div>
+                        </div>
+                    </div>
+               
+                       <div class="col-sm-2">
+                        
+                       </div>
+
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+  <div id="partialtableview"></div>
+
+          <script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+      
+
+<script>
+    
+    function GetTsaWiseData() {
+        let vtsaCode = $("#Tsacode").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("TsaWiseAssignReport","Report")',
+
+                data:
+                {
+                    TsaCode : vtsaCode
+                },
+
+                success: function (data) {
+                  
+                      $('#partialtableview').html(data);
+                      $("#ReportTable").DataTable(
+                        {
+                            //"dom": 'Blfrtips',
+                             "dom": "<'row'<'col-3'f> <'col-3 text-right'l> <'col-6 text-right'B>  ><'row'<'col-sm-12'tr>><'row'<'col-sm-12'ip>>",
+                            "order": [[1, 'asc']],
+                            "scrollX": true,    
+                            "scrollY": true,
+                            "scrollCollapse": true,
+
+                            "columnDefs": [{ "type": "date", "targets": 1 }],
+                            "buttons": [
+
+                                {
+                                    "extend": "excel",
+                                     "text": '<i class="fas fa-file-excel"></i>',
+                                    "className": 'btn btn-outline-success buttonExcel',
+                                }
+                            ]
+
+                        }
+                    );
+
+                },
+                 error: function (ex)
+                {
+                  
+                }
+
+
+            });
+  
+    }
+    function SetReportWiseView () {
+         var report = $("#reportList").val();
+         if (report == 3) {
+             $("#parameterInfo").show();
+             $("#submitBtn").attr("disabled",true);
+             $('#partialtableview').html('');
+         }
+         else {
+             $("#parameterInfo").hide();
+             $("#submitBtn").attr("disabled",false);
+             $('#partialtableview').html('');
+             // GetReportView(report);
+         }
+     }
+    function GetReportView() { 
+       var report = $("#reportList").val();
+        var vurl = '';
+        if (report == 1) { 
+            vurl = '@Url.Action("ToolStockReport", "Report")';
+        }
+        else if (report == 2) { 
+            vurl='@Url.Action("TsaReport", "Report")'
+        }
+         $.ajax(
+                {
+                    type: "POST",
+                    url: vurl,
+ 
+                    error: function (result) {
+                        alert("error");
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        $('#partialtableview').html(result);
+                         $("#ReportTable").DataTable(
+                        {
+                            //"dom": 'Blfrtips',
+                             "dom": "<'row'<'col-3'f> <'col-3 text-right'l> <'col-6 text-right'B>  ><'row'<'col-sm-12'tr>><'row'<'col-sm-12'ip>>",
+                            "order": [[1, 'asc']],
+                            "scrollX": true,    
+                            "scrollY": true,
+                            "scrollCollapse": true,
+
+                            "columnDefs": [{ "type": "date", "targets": 1 }],
+                            "buttons": [ {
+                                    "extend": "pdf",
+                                     "text": '<i class="fas fa-file-pdf"></i>',
+                                    "className": 'btn btn-outline-success buttonExcel',
+                                }
+                            ]
+
+                        }
+                    );
+
+                    }
+                });
+
+    }
+    function GetTsaWiseAssignData() { 
+        let tsacode = $('#Tsacode').val();
+         $.ajax(
+             {
+                 type: "POST",
+                 url: '@Url.Action("TsaWiseAssignReport", "Report")',
+                 data: { TsaCode: tsacode
+                    },
+                    error: function (result) {
+                        alert("error");
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        $('#partialtableview').html(result);
+
+                    }
+                });
+    }
+      document.getElementById("printReport").onclick = function () {
+           //$('#signaturediv').css('display', 'block');
+            //printElement(document.getElementById("PrintArea"));
+            //$('#signaturediv').css('display', 'none');
+             var header_str = '<html><head><title>' + document.title  + '</title>';
+    header_str += '<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
+    header_str += '</head><body>';
+            var footer_str = '<script src="/_framework/aspnetcore-browser-refresh.js"><\/script>';
+              var new_str = document.getElementById("PrintArea").innerHTML;
+              var old_str = document.body.innerHTML;
+              document.body.innerHTML = header_str + new_str + footer_str;
+              window.print();
+              document.body.innerHTML = old_str;
+              return false;
+        }
+      function printElement(elem) {
+            var domClone = elem.cloneNode(true);
+
+            var $printSection = document.getElementById("PrintArea");
+
+            if (!$printSection) {
+                var $printSection = document.createElement("div");
+                $printSection.id = "PrintArea";
+                document.body.appendChild($printSection);
+            }
+
+            $printSection.innerHTML = "";
+            $printSection.appendChild(domClone);
+            window.print();
+        }
+</script>

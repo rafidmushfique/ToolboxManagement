@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ToolStockVM>
+<div class="card p-0" style="box-shadow: none;">
+    <div class="card-body p-4">
+
+        <table id="ReportTable" class="table table-hover compact dataTable no-footer" style="width:100%; white-space:nowrap">
+            <thead>
+                <tr>
+                    <th> Sl No. </th>
+                    <th> Tools Code </th>
+                    <th> Tools Name </th>
+                    <th> Brand </th>
+                    <th> Balance Quantity </th>
+                    <th> Action Type </th>
+                    <th> Comments </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    
+                    @foreach (var di in Model)
+                    {
+                        <tr>
+                            <td>@di.SlNo</td>
+                            <td>@di.ToolCode</td>
+                            <td>@di.ToolName</td>
+                            <td>@di.Brand</td>
+                            <td>@di.BalanceQty</td>
+                            <td>@di.ActionType</td>
+                            <td>@di.Comments</td>
+                           
+                        </tr>
+                        
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

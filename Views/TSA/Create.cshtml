@@ -1,0 +1,173 @@
+﻿@model LILI_TTS.Models.TblTsasetup
+
+
+<div id="modal-placeholder">
+    @{
+        var message = TempData["msg"].ToString();
+        if (!string.IsNullOrEmpty(message))
+        {
+                            <script>
+                                alert("@message");
+                            </script>
+
+        }
+    }
+
+</div>
+
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="breadcrumb-item"><a href="/tsa/Index">TSA Setup</a></li>
+        <li class="breadcrumb-item active">Add TSA Information</li>
+    </ol>
+
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="border:1px solid; border-color:cadetblue; padding:10px">
+
+                <form class="form-horizontal" asp-controller="TSA" method="post" asp-action="CreateTSA" onsubmit="return SubmissionCheck()">
+
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <div class="form-outline">
+                                <label for="TsaCode" class="col-sm-2 control-label">Tsa Code</label>
+                                <div class="col-sm-4">
+                                    <input type="text" asp-for="Tsacode" class="form-control" placeholder="Tsa Code" readonly>
+                                    <span asp-validation-for="Tsacode"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-outline">
+                                <label for="ToolName" class="col-sm-2 control-label">TSA Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" asp-for="Tsaname" class="form-control" placeholder="TSA Name">
+                                    <span asp-validation-for="Tsaname"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-outline">
+                                <label for="Designation" class="col-sm-2 control-label">Designation</label>
+                                <div class="col-sm-10">
+                                    <input type="text" asp-for="Designation" class="form-control" placeholder="Designation">
+                                    <span asp-validation-for="Designation"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-outline">
+
+                                <label for="MobileNo" class="col-sm-2 control-label">Mobile No</label>
+                                <div class="col-sm-10">
+                                    <input type="text" asp-for="MobileNo" class="form-control" placeholder="Mobile No" onchange="isMobileNoValid()">
+                                    <span asp-validation-for="MobileNo"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="AreaCode" class="col-sm-2 control-label">Area</label>
+                            <div class="col-sm-10">
+                  
+                                <select asp-for="AreaCode" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfArea,"AreaCode","AreaName"))" required></select>
+
+
+                                </select>
+                                <span asp-validation-for="AreaCode"></span>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="RegionCode" class="col-sm-2 control-label">Region</label>
+                            <div class="col-sm-10">
+                              
+                                <select asp-for="RegionCode" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfRegion,"RegionCode","RegionName"))" required></select>
+
+
+                                </select>
+                                <span asp-validation-for="RegionCode"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-outline">
+                                <label for="ToolName" class="col-sm-2 control-label">Comments</label>
+                                <div class="col-sm-10">
+                                    <textarea asp-for="Description" class="form-control" placeholder="Comments"></textarea>
+                                    <span asp-validation-for="Description"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- /.box-body -->
+                    <div class="card-footer">
+
+                        <a class="btn btn-mini btn-primary" href='@Url.Content("/TSA/Index")'>Cancel</a>
+                        <button type="submit" class="btn btn-info pull-right">Create</button>
+
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.box -->
+</section>
+
+
+
+
+<script type="text/javascript">
+
+    function isMobileNoValid() {
+        const regex = /^(?:(?:\+|00)88|01)?\d{11}$/;
+        const phoneNumber = $("#MobileNo").val();
+
+        if (!regex.test(phoneNumber)) {
+            $("#MobileNo").val("+8801234567890");
+            alert("Invalid phone number.");
+
+        }
+    }
+
+    function isMobileNoValid() {
+        const regex = /^(?:(?:\+|00)88|01)?\d{11}$/;
+        const phoneNumber = $("#MobileNo").val();
+
+        if (!regex.test(phoneNumber)) {
+            $("#MobileNo").val("+8801234567890");
+            alert("Invalid phone number.");
+
+        }
+    }
+
+    function SubmissionCheck() { 
+        let areaCode = $("#AreaCode").val();
+        let regionCode = $("#RegionCode").val();
+        if (areaCode == null || areaCode == '') { 
+            alert("Please Select an Area!");
+            return false;
+        }
+        if (regionCode == null || regionCode == '') {
+            alert("Please Select an Region!");
+            return false;
+        }
+        return true;
+    }
+
+</script>
